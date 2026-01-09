@@ -49,24 +49,3 @@ result = true; // Lỗi
 let status: "success" | "error" | "loading";
 status = "success"; // Hợp lệ
 status = "failed"; // Lỗi
-
-
-//8. Null và Undefined
-let value: string | null = null;
-let score: number | undefined = undefined;
-//vd
-let status: "active" | "inactive" | "pending";
-status = "suc";
-status = "active";
-//vd2
-const data:{
-    id:number;
-    title:string;
-    des: string | null;
-    timeL?: number | undefined;
-}={
-    id:1,
-    title:"tp",
-    des:"noooo",
-    timeL:123,
-}
