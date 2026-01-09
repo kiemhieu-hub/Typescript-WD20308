@@ -34,5 +34,41 @@ function addDes(product:Product[]):ProWithDes[]{
     return product.map(product => ({...product, description: product.price > 5 ? 'Tốt' : 'Bình thường'}));
 }
 
-const ProWithDes = addDes(listProducts);
-console.log(ProWithDes);
+// 4. Hàm hiển thị danh sách sản phẩm (forEach)
+function displayProducts(products: ProWithDes[]): void {
+  products.forEach(p => {
+    console.log(
+      `Tên: ${p.name} | Giá: ${p.price} | Sale: ${p.sale ? 'Có' : 'Không'} | Đánh giá: ${p.rate} | Mô tả: ${p.description}`
+    );
+  });
+}
+
+// 5. Hàm tính tổng giá bán (reduce)
+function totalPrice(products: Product[]): number {
+  return products.reduce((sum, p) => sum + p.price, 0);
+}
+
+// 6. Hàm lọc sản phẩm đang sale & đánh giá từ Trung bình trở lên (filter)
+function filterSaleProducts(products: Product[]): Product[] {
+  return products.filter(
+    p =>
+      p.sale === true &&
+      (p.rate === Rate.medium || p.rate === Rate.hight)
+  );
+}
+
+///phần gọi hàm
+
+// Thêm description cho sản phẩm
+const productsWithDes = addDes(listProducts);
+
+// Hiển thị danh sách sản phẩm
+console.log('Danh sách sản phẩm: ');
+displayProducts(productsWithDes);
+
+// Tính tổng giá bán
+console.log('Tổng giá bán:', totalPrice(listProducts));
+
+// Lọc sản phẩm sale & đánh giá từ Trung bình trở lên
+console.log('Sản phẩm đang sale & đánh giá từ Trung bình trở lên: ');
+console.log(filterSaleProducts(listProducts));
