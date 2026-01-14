@@ -32,3 +32,10 @@ const product2 = {
     price: 1234
 };
 console.log(product2);
+const status = "success";
+const userRes = {
+    id: 1,
+    name: "Noname",
+    email: "email@gmail.com",
+    token: "chiu thua"
+};

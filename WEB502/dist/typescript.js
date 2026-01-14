@@ -35,3 +35,20 @@ result = true; // Lỗi
 let status;
 status = "success"; // Hợp lệ
 status = "failed"; // Lỗi
+//8. Null và Undefined
+let value = null;
+let score = undefined;
+//9. Unknown và Any
+// unknown: Tương tự any, nhưng an toàn hơn vì bạn phải kiểm tra kiểu trước khi sử dụng.
+let input = 42;
+if (typeof input === "number") {
+    let num = input; // Hợp lệ sau khi kiểm tra kiểu
+}
+// So sánh với any:
+let data = 10;
+let num = data; // Không cần kiểm tra, nhưng không an toàn.
+//10. Type Assertions
+let someValue = "This is a string";
+let strLength = someValue.length;
+// Hoặc sử dụng cú pháp <>
+let strLength2 = someValue.length;

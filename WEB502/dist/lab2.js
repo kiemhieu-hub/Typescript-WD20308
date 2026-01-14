@@ -41,10 +41,10 @@ function filterSaleProducts(products) {
 // Thêm description cho sản phẩm
 const productsWithDes = addDes(listProducts);
 // Hiển thị danh sách sản phẩm
-console.log('📌 Danh sách sản phẩm:');
+console.log('Danh sách sản phẩm: ');
 displayProducts(productsWithDes);
 // Tính tổng giá bán
-console.log('💰 Tổng giá bán:', totalPrice(listProducts));
+console.log('Tổng giá bán:', totalPrice(listProducts));
 // Lọc sản phẩm sale & đánh giá từ Trung bình trở lên
-console.log('🔥 Sản phẩm đang sale & đánh giá từ Trung bình trở lên:');
+console.log('Sản phẩm đang sale & đánh giá từ Trung bình trở lên: ');
 console.log(filterSaleProducts(listProducts));
