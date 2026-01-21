@@ -27,6 +27,27 @@
       "credit": 4,
       "category": "Đại cương",
       "teacher": "Phạm Văn D"
+    },
+    {
+      "name": "kh1",
+      "credit": "3",
+      "category": "Cơ sở",
+      "teacher": "ng van a",
+      "id": 5
+    },
+    {
+      "name": "chiu",
+      "credit": "1234",
+      "category": "Đại cương",
+      "teacher": "ng van d",
+      "id": 6
+    },
+    {
+      "name": "vvabc",
+      "credit": "111",
+      "category": "Chuyên ngành",
+      "teacher": "ng van d",
+      "id": 7
     }
   ]
 }

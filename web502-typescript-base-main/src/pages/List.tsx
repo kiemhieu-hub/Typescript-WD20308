@@ -9,7 +9,7 @@ type Course = {
   teacher: string;
 };
 
-const PAGE_SIZE = 3; // số item mỗi trang
+const PAGE_SIZE = 4; // số item mỗi trang
 
 function ListPage() {
   // state
@@ -97,6 +97,8 @@ function ListPage() {
             <tr>
               <th className="px-4 py-2 border">ID</th>
               <th className="px-4 py-2 border">Name</th>
+              <th className="px-4 py-2 border">credit</th>
+              <th className="px-4 py-2 border">category</th>
               <th className="px-4 py-2 border">Teacher</th>
               <th className="px-4 py-2 border">Actions</th>
             </tr>
@@ -107,6 +109,8 @@ function ListPage() {
               <tr key={course.id} className="hover:bg-gray-50">
                 <td className="px-4 py-2 border">{course.id}</td>
                 <td className="px-4 py-2 border">{course.name}</td>
+                <td className="px-4 py-2 border">{course.credit}</td>
+                <td className="px-4 py-2 border">{course.category}</td>
                 <td className="px-4 py-2 border">{course.teacher}</td>
                 <td className="px-4 py-2 border">
                   Edit | Delete
