@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 type Course = {
   id: number;
@@ -31,7 +32,24 @@ function ListPage() {
     getAll();
   }, []);
 
-  // lấy danh sách teacher (unique)
+  const handleDelete = async (id: number) => {
+    const ok = window.confirm("Bạn có chắc chắn muốn xóa khóa học này không?");
+    if (!ok) return;
+
+    try {
+      await axios.delete(`http://localhost:3000/courses/${id}`);
+
+      // cập nhật lại state (không cần gọi lại API)
+      setCourses((prev) => prev.filter((c) => c.id !== id));
+
+      alert("Xóa khóa học thành công ✅");
+    } catch (error) {
+      console.log(error);
+      alert("Xóa thất bại ❌");
+    }
+  };
+
+  // lấy danh sách teacher 
   const teachers = Array.from(
     new Set(courses.map((c) => c.teacher))
   );
@@ -60,7 +78,7 @@ function ListPage() {
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách khóa học</h1>
 
-      {/* Search + Filter */}
+
       <div className="flex gap-4 mb-4">
         <input
           type="text"
@@ -90,7 +108,7 @@ function ListPage() {
         </select>
       </div>
 
-      {/* Table */}
+
       <div className="overflow-x-auto">
         <table className="w-full border border-gray-300 rounded-lg">
           <thead className="bg-gray-100">
@@ -113,7 +131,14 @@ function ListPage() {
                 <td className="px-4 py-2 border">{course.category}</td>
                 <td className="px-4 py-2 border">{course.teacher}</td>
                 <td className="px-4 py-2 border">
-                  Edit | Delete
+                  <Link to={`/edit/${course.id}`}>✏️</Link>
+                  <button
+                    onClick={() => handleDelete(course.id)}
+                    title="Xóa"
+                  >
+                    🗑️
+                  </button>
+
                 </td>
               </tr>
             ))}
@@ -129,17 +154,15 @@ function ListPage() {
         </table>
       </div>
 
-      {/* Pagination */}
       <div className="flex gap-2 mt-4">
         {Array.from({ length: totalPages }).map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentPage(index + 1)}
-            className={`px-3 py-1 border rounded ${
-              currentPage === index + 1
+            className={`px-3 py-1 border rounded ${currentPage === index + 1
                 ? "bg-blue-500 text-white"
                 : ""
-            }`}
+              }`}
           >
             {index + 1}
           </button>
@@ -147,6 +170,7 @@ function ListPage() {
       </div>
     </div>
   );
+  
 }
 
 export default ListPage;

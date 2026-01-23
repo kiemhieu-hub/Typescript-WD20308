@@ -5,6 +5,7 @@ import  MainLayout from "./layouts/MainLayout";
 import ListPage from "./pages/List";
 import AddPage from "./pages/Add";
 
+
 function App() {
   return (
 
@@ -14,6 +15,7 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<ListPage />} />
         <Route path="/add" element={<AddPage />} />
+        <Route path="/edit/:id" element={<AddPage />} />
       </Route>
     </Routes>
   );
