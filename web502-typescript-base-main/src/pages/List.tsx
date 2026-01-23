@@ -10,16 +10,15 @@ type Course = {
   teacher: string;
 };
 
-const PAGE_SIZE = 4; // số item mỗi trang
+const PAGE_SIZE = 4;
 
 function ListPage() {
-  // state
   const [courses, setCourses] = useState<Course[]>([]);
   const [search, setSearch] = useState("");
   const [teacherFilter, setTeacherFilter] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  // call api
+  //api
   useEffect(() => {
     const getAll = async () => {
       try {
@@ -32,6 +31,7 @@ function ListPage() {
     getAll();
   }, []);
 
+  //xóa
   const handleDelete = async (id: number) => {
     const ok = window.confirm("Bạn có chắc chắn muốn xóa khóa học này không?");
     if (!ok) return;
@@ -39,7 +39,6 @@ function ListPage() {
     try {
       await axios.delete(`http://localhost:3000/courses/${id}`);
 
-      // cập nhật lại state (không cần gọi lại API)
       setCourses((prev) => prev.filter((c) => c.id !== id));
 
       alert("Xóa khóa học thành công ");
@@ -48,37 +47,28 @@ function ListPage() {
       alert("Xóa thất bại");
     }
   };
-
   // lấy danh sách teacher 
-  const teachers = Array.from(
-    new Set(courses.map((c) => c.teacher))
-  );
-
+  const teachers = Array.from(new Set(courses.map((c) => c.teacher)));
   // filter + search
   const filteredCourses = courses.filter((course) => {
     const matchName = course.name
       .toLowerCase()
       .includes(search.toLowerCase());
-
     const matchTeacher =
       teacherFilter === "" || course.teacher === teacherFilter;
-
     return matchName && matchTeacher;
   });
 
-  // pagination
+  // page
   const totalPages = Math.ceil(filteredCourses.length / PAGE_SIZE);
   const startIndex = (currentPage - 1) * PAGE_SIZE;
   const paginatedCourses = filteredCourses.slice(
-    startIndex,
-    startIndex + PAGE_SIZE
+    startIndex,startIndex + PAGE_SIZE
   );
 
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách khóa học</h1>
-
-
       <div className="flex gap-4 mb-4">
         <input
           type="text"
@@ -88,8 +78,7 @@ function ListPage() {
             setSearch(e.target.value);
             setCurrentPage(1);
           }}
-          className="border px-3 py-2 rounded w-64"
-        />
+          className="border px-3 py-2 rounded w-64"/>
 
         <select
           value={teacherFilter}
