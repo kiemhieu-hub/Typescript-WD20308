@@ -42,10 +42,10 @@ function ListPage() {
       // cập nhật lại state (không cần gọi lại API)
       setCourses((prev) => prev.filter((c) => c.id !== id));
 
-      alert("Xóa khóa học thành công ✅");
+      alert("Xóa khóa học thành công ");
     } catch (error) {
       console.log(error);
-      alert("Xóa thất bại ❌");
+      alert("Xóa thất bại");
     }
   };
 

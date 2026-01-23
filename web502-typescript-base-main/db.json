@@ -2,8 +2,8 @@
   "courses": [
     {
       "id": 1,
-      "name": "ReactJS Cơ Bản",
-      "credit": 3,
+      "name": "ReactJS Cơ Bản update2",
+      "credit": "333",
       "category": "Chuyên ngành",
       "teacher": "Nguyễn Văn A"
     },
