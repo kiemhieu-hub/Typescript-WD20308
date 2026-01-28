@@ -36,7 +36,7 @@ function App() {
         </div>
       </nav>
 
-      {/* MAIN CONTENT */}
+      
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB502</h1>
         <Routes>
@@ -48,7 +48,7 @@ function App() {
             <Route path="/add" element={<AddPage />} />
             <Route path="/edit/:id" element={<AddPage />} />
           </Route>
-          
+
           <Route path="/register" element={<AuthPage isRegister />}></Route>
           <Route path="/login" element={<AuthPage />}></Route>
         </Routes>
