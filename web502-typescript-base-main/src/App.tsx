@@ -40,15 +40,16 @@ function App() {
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB502</h1>
         <Routes>
-       
+
 
           <Route path="/" element={<ListPage />} />
-          <Route path="/add" element={<AddPage />} />
-          <Route path="/edit/:id" element={<AddPage />} />
-          <Route
-            path="/register"
-            element={<AuthPage isRegister />}
-          ></Route>
+
+          <Route element={<></>}>
+            <Route path="/add" element={<AddPage />} />
+            <Route path="/edit/:id" element={<AddPage />} />
+          </Route>
+          
+          <Route path="/register" element={<AuthPage isRegister />}></Route>
           <Route path="/login" element={<AuthPage />}></Route>
         </Routes>
       </div>

@@ -64,7 +64,7 @@ function AuthPage({ isRegister = false }: Props) {
       </h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        {/* Username (chỉ hiện khi register) */}
+        
         {isRegister && (
           <div>
             <label className="block font-medium mb-1">Username</label>
@@ -86,7 +86,7 @@ function AuthPage({ isRegister = false }: Props) {
           </div>
         )}
 
-        {/* Email */}
+       
         <div>
           <label className="block font-medium mb-1">Email</label>
           <input
@@ -107,7 +107,7 @@ function AuthPage({ isRegister = false }: Props) {
           )}
         </div>
 
-        {/* Password */}
+     
         <div>
           <label className="block font-medium mb-1">Password</label>
           <input
@@ -128,7 +128,7 @@ function AuthPage({ isRegister = false }: Props) {
           )}
         </div>
 
-        {/* Confirm Password (chỉ register) */}
+     
         {isRegister && (
           <div>
             <label className="block font-medium mb-1">
