@@ -48,6 +48,26 @@
       "category": "Chuyên ngành",
       "teacher": "ng van d",
       "id": 7
+    },
+    {
+      "name": "kh1",
+      "credit": "22",
+      "category": "Đại cương",
+      "teacher": "2eq",
+      "id": 8
+    }
+  ],
+  "users": [
+    {
+      "email": "emchiuthua123@gmail.com",
+      "password": "$2a$10$X4mI696pi0SHIol2zLwkpuEN3DMWSFj4v7dD8VutwwmvUmnyKDBue",
+      "id": 1
+    },
+    {
+      "email": "emchiuthua1234@gmail.com",
+      "password": "$2a$10$8sxWR6owQcMogdqSS/U8GeKr2foGEC5QXUrkMTR6nsaPu6aOtqQB6",
+      "username": "admin1",
+      "id": 2
     }
   ]
 }
