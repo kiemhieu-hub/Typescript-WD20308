@@ -3,6 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import ListPage from "./pages/List";
 import AddPage from "./pages/Add";
 import AuthPage from "./pages/AuthPage";
+import  ProtectRoute  from "./components/ProtectRoute";
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
 
           <Route path="/" element={<ListPage />} />
 
-          <Route element={<></>}>
+          <Route element={<ProtectRoute></ProtectRoute>}>
             <Route path="/add" element={<AddPage />} />
             <Route path="/edit/:id" element={<AddPage />} />
           </Route>
