@@ -39,6 +39,9 @@ function AuthPage({ isRegister = false }: Props) {
         );
 
         localStorage.setItem("accessToken", data.accessToken);
+localStorage.setItem("user", JSON.stringify(data.user));
+console.log("LOGIN RESPONSE:", data);
+
         toast.success("Đăng nhập thành công");
         nav("/");
       } else {
